@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Aleena ❤️</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
+
+        :root {
+            --primary: #1a1a2e;
+            --secondary: #16213e;
+            --accent: #e94560;
+            --text: #fff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Dancing Script', cursive;
+            background-color: var(--primary);
+            color: var(--text);
+            min-height: 100vh;
+            background-image: url('https://images.unsplash.com/photo-1596438459194-f275f413d6ff');
+            background-size: cover;
+            background-blend-mode: overlay;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 2rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .love-quote {
+            font-size: 1.8rem;
+            margin-bottom: 3rem;
+            line-height: 1.6;
+        }
+
+        .special-message {
+            font-size: 2rem;
+            color: var(--accent);
+            margin: 2rem 0;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 1.5s forwards;
+        }
+
+        .question-card {
+            background: rgba(22, 33, 62, 0.8);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(233, 69, 96, 0.2);
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            margin: 0.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .btn-yes {
+            background: var(--accent);
+            color: var(--text);
+        }
+
+        .btn-no {
+            background: #333;
+            color: var(--text);
+            position: relative;
+        }
+
+        .rose {
+            position: fixed;
+            font-size: 2rem;
+            opacity: 0;
+            animation: fall 5s linear infinite;
+        }
+
+        .heart {
+            position: fixed;
+            font-size: 2rem;
+            opacity: 0;
+            z-index: -1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+            50% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>My Dearest Aleena ❤️</h1>
+        <p class="love-quote">"In your eyes, I found my home. In your heart, I found my love. In your soul, I found my purpose. Aleena, you are my everything."</p>
+        <p class="special-message">Every moment with you makes my life complete</p>
+        
+        <div class="question-card" id="question1">
+            <h2>Aleena, will you be mine forever?</h2>
+            <button class="btn btn-yes" onclick="showLove()">Yes</button>
+            <button class="btn btn-no" onmouseover="moveButton(this)">No</button>
+        </div>
+    </div>
+
+    <script>
+        function moveButton(btn) {
+            btn.style.position = 'absolute';
+            btn.style.left = Math.random() * (window.innerWidth - btn.offsetWidth) + 'px';
+            btn.style.top = Math.random() * (window.innerHeight - btn.offsetHeight) + 'px';
+        }
+
+        function showLove() {
+            const messages = [
+                "I knew you would say yes! I love you more than words can express, Aleena! ❤️",
+                "Aleena, you make my heart skip a beat every time I see you!",
+                "My world is brighter with you in it, my beautiful Aleena!",
+                "You are the reason I smile every day, my sweet Aleena!",
+                "Aleena, you are the most precious gift I've ever received!"
+            ];
+            alert(messages[Math.floor(Math.random() * messages.length)]);
+            createRoses();
+            createHearts();
+            showSpecialMessage();
+            showNextQuestion();
+        }
+
+        function createRoses() {
+            setInterval(() => {
+                const rose = document.createElement('div');
+                rose.className = 'rose';
+                rose.innerHTML = '🌹';
+                rose.style.left = Math.random() * 100 + 'vw';
+                document.body.appendChild(rose);
+                
+                setTimeout(() => {
+                    rose.remove();
+                }, 5000);
+            }, 300);
+        }
+
+        function createHearts() {
+            setInterval(() => {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.innerHTML = '❤️';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.bottom = '0';
+                document.body.appendChild(heart);
+                
+                setTimeout(() => {
+                    heart.remove();
+                }, 6000);
+            }, 400);
+        }
+
+        function showSpecialMessage() {
+            const specialMessages = [
+                "Aleena, you are the starlight in my darkest nights",
+                "With you, my Aleena, every moment feels like magic",
+                "You're the rhythm to my heartbeat, Aleena",
+                "Aleena, you're the melody that plays in my heart forever",
+                "My universe begins and ends with you, Aleena"
+            ];
+            
+            const message = document.createElement('p');
+            message.className = 'special-message';
+            message.textContent = specialMessages[Math.floor(Math.random() * specialMessages.length)];
+            document.querySelector('.container').appendChild(message);
+        }
+
+        const questions = [
+            "Aleena, do you know you're the most beautiful person in the world?",
+            "My sweet Aleena, will you share all your dreams with me?",
+            "Aleena, can I be your everything as you are mine?",
+            "Would you like to go on endless adventures with me, my precious Aleena?"
+        ];
+
+        let currentQuestion = 0;
+
+        function showNextQuestion() {
+            currentQuestion++;
+            if (currentQuestion < questions.length) {
+                const card = document.createElement('div');
+                card.className = 'question-card';
+                card.innerHTML = `
+                    <h2>${questions[currentQuestion]}</h2>
+                    <button class="btn btn-yes" onclick="showLove()">Yes</button>
+                    <button class="btn btn-no" onmouseover="moveButton(this)">No</button>
+                `;
+                document.querySelector('.container').appendChild(card);
+            }
+        }
+    </script>
+</body>
+</html>
